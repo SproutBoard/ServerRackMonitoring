@@ -1,5 +1,7 @@
 #include <Time.h>
 #include <Bounce.h>
+#include <SPI.h>
+#include <Ethernet.h>
 
 class ReedSwitches
 {
@@ -12,6 +14,7 @@ class ReedSwitches
     void RestoreFromEeprom( int address );
     void StoreToEeprom( int address );
     void PrintSerial();
+    void PrintWeb(EthernetClient client );
 //    char *AsXML( char *buffer );
 //    char *XMLStatus( char *buffer );
 //    char *TRStatus( char *buffer );

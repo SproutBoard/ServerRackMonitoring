@@ -97,16 +97,16 @@ void setup(){
 
 void loop(){
   _tempc = GetTempurature_LM60(TemperatureSensorPin, 10);
-  _tempf = ConvertCelciusToFahrenheit(tempc);
-  _trueRH = GetTrueRelativeHumidity(HumiditySensorPin, tempc, 10);
+  _tempf = ConvertCelciusToFahrenheit(_tempc);
+  _trueRH = GetTrueRelativeHumidity(HumiditySensorPin, _tempc, 10);
   reedSwitches.Poll();
   
   time = millis();
   
   if(time - timePrevious >= 500) //To slow down Serial output so it's readable
   {
-    PrintTemperatureSerial(tempc, tempf);
-    PrintHumiditySerial(trueRH);
+    PrintTemperatureSerial(_tempc, _tempf);
+    PrintHumiditySerial(_trueRH);
     reedSwitches.PrintSerial();
     timePrevious = time;
   }
