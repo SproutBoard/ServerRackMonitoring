@@ -8,8 +8,8 @@ double GetNonTempuratureAdjustedHumidity(int port, int samples){
     VoutSamples = VoutSamples + map( analogRead(port), 0, 1023, 0, 5000); 
     delay(2);     
   }
-  float averageVout = VoutSamples / (float)samples;
-  double RH = (( averageVout / 5.0 ) - 0.1515) / 0.00636;
+  double averageVout = VoutSamples / (double)samples;
+  double RH = (( averageVout / 5000.0 ) - 0.1515) / 0.00636;
   return RH;
 }
 
